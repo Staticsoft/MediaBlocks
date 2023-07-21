@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net60</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <RootNamespace>Staticsoft.$(MSBuildProjectName)</RootNamespace>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +13,7 @@
   
   <ItemGroup>
     <PackageReference Include="Staticsoft.Extensions.DependencyInjection" Version="1.0.0-3" />
+    <PackageReference Include="Staticsoft.TreeOperations.Abstractions" Version="1.0.0-3" />
   </ItemGroup>
 
   <PropertyGroup>
