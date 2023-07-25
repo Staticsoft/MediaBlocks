@@ -7,20 +7,20 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MediaBlocks.Abstractions\MediaBlocks.Abstractions.csproj" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <PackageReference Include="Staticsoft.Extensions.DependencyInjection" Version="1.0.0-3" />
-    <PackageReference Include="Staticsoft.TreeOperations.Abstractions" Version="1.0.0-4" />
-  </ItemGroup>
-
   <PropertyGroup>
     <PackageId>Staticsoft.$(MSBuildProjectName)</PackageId>
     <VersionPrefix>1.0.0</VersionPrefix>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/Staticsoft/MediaBlocks</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Staticsoft.TreeOperations.Abstractions" Version="1.0.0-4" />
+    <PackageReference Include="FFMpegCore" Version="5.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MediaBlocks.Abstractions\MediaBlocks.Abstractions.csproj" />
+  </ItemGroup>
 
 </Project>
