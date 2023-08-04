@@ -43,6 +43,17 @@ public abstract class OperationTestBase : TestBase<TreeMedia>
 
 public abstract class OperationTest : OperationTestBase
 {
+    static protected object FadeIn(object reference, int duration)
+        => new
+        {
+            Type = nameof(FadeIn),
+            Data = new
+            {
+                Media = reference,
+                Duration = duration
+            }
+        };
+
     static protected object Merge(params object[] references)
         => new
         {
