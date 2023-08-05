@@ -23,6 +23,7 @@ public class FadeOutOperation : Operation<FadeProperties, MediaReference>
             .FromFileInput(properties.Media.Path)
             .OutputToFile(output, overwrite: false, (options) => options
                 .WithVideoFilters(filters => filters.FadeOut(startTime, properties.Duration))
+                .WithAudioFilters(filters => filters.FadeOut(startTime, properties.Duration))
             )
             .ProcessAsynchronously();
 

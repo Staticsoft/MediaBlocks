@@ -19,6 +19,7 @@ public class FadeInOperation : Operation<FadeProperties, MediaReference>
             .FromFileInput(properties.Media.Path)
             .OutputToFile(output, overwrite: false, (options) => options
                 .WithVideoFilters(filters => filters.FadeIn(properties.Duration))
+                .WithAudioFilters(filters => filters.FadeIn(properties.Duration))
             )
             .ProcessAsynchronously();
 
