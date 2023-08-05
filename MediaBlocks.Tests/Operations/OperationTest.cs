@@ -43,17 +43,6 @@ public abstract class OperationTestBase : TestBase<TreeMedia>
 
 public abstract class OperationTest : OperationTestBase
 {
-    static protected object FadeIn(object reference, int duration)
-        => new
-        {
-            Type = nameof(FadeIn),
-            Data = new
-            {
-                Media = reference,
-                Duration = duration
-            }
-        };
-
     static protected object Merge(params object[] references)
         => new
         {
@@ -66,5 +55,27 @@ public abstract class OperationTest : OperationTestBase
         {
             Type = nameof(Concat),
             Data = references
+        };
+
+    static protected object FadeIn(object reference, int duration)
+        => new
+        {
+            Type = nameof(FadeIn),
+            Data = new
+            {
+                Media = reference,
+                Duration = duration
+            }
+        };
+
+    static protected object FadeOut(object reference, int duration)
+        => new
+        {
+            Type = nameof(FadeOut),
+            Data = new
+            {
+                Media = reference,
+                Duration = duration
+            }
         };
 }

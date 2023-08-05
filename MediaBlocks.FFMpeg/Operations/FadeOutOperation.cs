@@ -1,24 +1,28 @@
 ﻿using FFMpegCore;
 using Staticsoft.MediaBlocks.Abstractions;
 using Staticsoft.TreeOperations.Abstractions;
+using System;
 using System.Threading.Tasks;
 
 namespace Staticsoft.MediaBlocks.FFMpeg;
 
-public class FadeInOperation : Operation<FadeProperties, MediaReference>
+public class FadeOutOperation : Operation<FadeProperties, MediaReference>
 {
     readonly IntermediateStorage Storage;
 
-    public FadeInOperation(IntermediateStorage storage)
+    public FadeOutOperation(IntermediateStorage storage)
         => Storage = storage;
 
     protected override async Task<MediaReference> Process(FadeProperties properties)
     {
         var output = $"{Storage.CreateIntermediateFilePath()}.mp4";
+        var analysed = await FFProbe.AnalyseAsync(properties.Media.Path);
+        var startTime = EvaluateStartTime(properties, analysed.Duration);
+
         await FFMpegArguments
             .FromFileInput(properties.Media.Path)
             .OutputToFile(output, overwrite: false, (options) => options
-                .WithVideoFilters(filters => filters.FadeIn(properties.Duration))
+                .WithVideoFilters(filters => filters.FadeOut(startTime, properties.Duration))
             )
             .ProcessAsynchronously();
 
@@ -28,4 +32,7 @@ public class FadeInOperation : Operation<FadeProperties, MediaReference>
             Type = MediaType.Video
         };
     }
+
+    static int EvaluateStartTime(FadeProperties properties, TimeSpan duration)
+        => Convert.ToInt32((duration - TimeSpan.FromMilliseconds(properties.Duration)).TotalMilliseconds);
 }
