@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Staticsoft.GraphOperations.Memory;
 using Staticsoft.MediaBlocks.Abstractions;
 using Staticsoft.MediaBlocks.Memory;
 using Staticsoft.Testing;
-using Staticsoft.TreeOperations.Memory;
 using System;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace Staticsoft.MediaBlocks.Tests;
 
-public abstract class OperationTestBase : TestBase<TreeMedia>
+public abstract class OperationTestBase : TestBase<GraphMedia>
 {
-    protected abstract TreeProcessorBuilder<MediaReference> Tree(TreeProcessorBuilder<MediaReference> tree);
+    protected abstract GraphProcessorBuilder Graph(GraphProcessorBuilder tree);
 
     protected override IServiceCollection Services => base.Services
-        .AddSingleton<TreeMedia>()
-        .UseJsonTreeProcessor<MediaReference>(Tree)
+        .AddSingleton<GraphMedia>()
+        .UseJsonGraphProcessor(Graph)
         .AddSingleton<TestIntermediateStorage>()
         .ReuseSingleton<IntermediateStorage, TestIntermediateStorage>();
 

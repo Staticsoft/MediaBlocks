@@ -1,13 +1,12 @@
-﻿using Staticsoft.MediaBlocks.Abstractions;
+﻿using Staticsoft.GraphOperations.Memory;
 using Staticsoft.MediaBlocks.FFMpeg;
-using Staticsoft.TreeOperations.Memory;
 using System.Threading.Tasks;
 
 namespace Staticsoft.MediaBlocks.Tests;
 
 public class FadeInOperationTests : OperationTest
 {
-    protected override TreeProcessorBuilder<MediaReference> Tree(TreeProcessorBuilder<MediaReference> tree) => tree
+    protected override GraphProcessorBuilder Graph(GraphProcessorBuilder graph) => graph
         .With<MergeOperation>()
         .With<FadeInOperation>();
 

@@ -15,7 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Staticsoft.TreeOperations.Abstractions" Version="1.0.0-4" />
+    <PackageReference Include="Staticsoft.GraphOperations.Abstractions" Version="1.0.0-3" />
     <PackageReference Include="FFMpegCore" Version="5.1.0" />
   </ItemGroup>
 

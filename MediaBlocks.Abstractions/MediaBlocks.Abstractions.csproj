@@ -14,4 +14,7 @@
     <RepositoryUrl>https://github.com/Staticsoft/MediaBlocks</RepositoryUrl>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Staticsoft.GraphOperations.Abstractions" Version="1.0.0-3" />
+  </ItemGroup>
 </Project>
