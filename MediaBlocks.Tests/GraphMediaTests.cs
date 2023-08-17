@@ -41,10 +41,7 @@ public class GraphMediaTests : TestBase<GraphMedia>
         => SUT.Build(FromConfiguration(configuration));
 
     static string FromConfiguration<Configuration>(Configuration configuration)
-        => JsonSerializer.Serialize(configuration, new JsonSerializerOptions()
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-        });
+        => JsonSerializer.Serialize(configuration);
 }
 
 public class NothingOperation : Operation<MediaReference, MediaReference>
