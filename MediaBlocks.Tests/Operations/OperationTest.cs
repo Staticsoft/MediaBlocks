@@ -4,7 +4,6 @@ using Staticsoft.MediaBlocks.Abstractions;
 using Staticsoft.MediaBlocks.Memory;
 using Staticsoft.Testing;
 using System;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -51,11 +50,15 @@ public abstract class OperationTestBase : TestBase<GraphMedia>
 
 public abstract class OperationTest : OperationTestBase
 {
-    static protected object Merge(params object[] references)
+    static protected object Merge(object image, object audio)
         => new
         {
             Type = nameof(Merge),
-            Properties = references.Select(reference => new { Ref = reference }).ToArray()
+            Properties = new
+            {
+                Image = new { Ref = image },
+                Audio = new { Ref = audio }
+            }
         };
 
     static protected object Concat(params object[] references)

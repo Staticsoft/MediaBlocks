@@ -16,6 +16,6 @@ public class MergeOperationTests : OperationTest
         {
             Audio = Audio("beep.mp3"),
             Image = Image("green.png"),
-            Merged = Merge("Audio", "Image")
+            Merged = Merge("Image", "Audio")
         });
 }
