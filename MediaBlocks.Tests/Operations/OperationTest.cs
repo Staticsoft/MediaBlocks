@@ -4,6 +4,7 @@ using Staticsoft.MediaBlocks.Abstractions;
 using Staticsoft.MediaBlocks.Memory;
 using Staticsoft.Testing;
 using System;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -65,10 +66,7 @@ public abstract class OperationTest : OperationTestBase
         => new
         {
             Type = nameof(Concat),
-            Properties = new
-            {
-                References = references
-            }
+            Properties = references.Select(reference => new { Ref = reference }).ToArray()
         };
 
     static protected object FadeIn(object reference, int duration)
