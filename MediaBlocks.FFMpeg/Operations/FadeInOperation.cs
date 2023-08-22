@@ -1,6 +1,6 @@
 ﻿using FFMpegCore;
+using Staticsoft.GraphOperations.Abstractions;
 using Staticsoft.MediaBlocks.Abstractions;
-using Staticsoft.TreeOperations.Abstractions;
 using System.Threading.Tasks;
 
 namespace Staticsoft.MediaBlocks.FFMpeg;
@@ -16,7 +16,7 @@ public class FadeInOperation : Operation<FadeProperties, MediaReference>
     {
         var output = $"{Storage.CreateIntermediateFilePath()}.mp4";
         await FFMpegArguments
-            .FromFileInput(properties.Media.Path)
+            .FromFileInput(properties.Video)
             .OutputToFile(output, overwrite: false, (options) => options
                 .WithVideoFilters(filters => filters.FadeIn(properties.Duration))
                 .WithAudioFilters(filters => filters.FadeIn(properties.Duration))

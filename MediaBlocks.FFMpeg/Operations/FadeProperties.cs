@@ -1,9 +1,7 @@
-﻿using Staticsoft.MediaBlocks.Abstractions;
-
-namespace Staticsoft.MediaBlocks.FFMpeg;
+﻿namespace Staticsoft.MediaBlocks.FFMpeg;
 
 public class FadeProperties
 {
-    public MediaReference Media { get; init; } = new();
+    public string Video { get; init; } = string.Empty;
     public int Duration { get; init; } = 0;
 }

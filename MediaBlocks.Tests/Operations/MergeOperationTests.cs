@@ -1,21 +1,21 @@
-﻿using Staticsoft.MediaBlocks.Abstractions;
+﻿using Staticsoft.GraphOperations.Memory;
 using Staticsoft.MediaBlocks.FFMpeg;
-using Staticsoft.TreeOperations.Memory;
 using System.Threading.Tasks;
 
 namespace Staticsoft.MediaBlocks.Tests;
 
 public class MergeOperationTests : OperationTest
 {
-    protected override TreeProcessorBuilder<MediaReference> Tree(TreeProcessorBuilder<MediaReference> tree) => tree
+    protected override GraphProcessorBuilder Graph(GraphProcessorBuilder graph) => graph
+        .With<AssetOperation>()
         .With<MergeOperation>();
 
     [Test]
     public Task MergesImageAndAudioIntoVideoFile()
-        => Process(
-            Merge(
-                Audio("beep.mp3"),
-                Image("green.png")
-            )
-        );
+        => Process(new
+        {
+            Audio = Audio("beep.mp3"),
+            Image = Image("green.png"),
+            Merged = Merge("Image", "Audio")
+        });
 }

@@ -1,25 +1,23 @@
-﻿using Staticsoft.MediaBlocks.Abstractions;
+﻿using Staticsoft.GraphOperations.Memory;
 using Staticsoft.MediaBlocks.FFMpeg;
-using Staticsoft.TreeOperations.Memory;
 using System.Threading.Tasks;
 
 namespace Staticsoft.MediaBlocks.Tests;
 
 public class FadeOutOperationTests : OperationTest
 {
-    protected override TreeProcessorBuilder<MediaReference> Tree(TreeProcessorBuilder<MediaReference> tree) => tree
+    protected override GraphProcessorBuilder Graph(GraphProcessorBuilder graph) => graph
+        .With<AssetOperation>()
         .With<MergeOperation>()
         .With<FadeOutOperation>();
 
     [Test]
     public Task FadesOutVideo()
-        => Process(
-            FadeOut(
-                Merge(
-                    Image("green.png"),
-                    Audio("beep.mp3")
-                ),
-                250
-            )
-        );
+        => Process(new
+        {
+            Image = Image("green.png"),
+            Audio = Audio("beep.mp3"),
+            Merged = Merge("Image", "Audio"),
+            FadedOut = FadeOut("Merged", 250)
+        });
 }

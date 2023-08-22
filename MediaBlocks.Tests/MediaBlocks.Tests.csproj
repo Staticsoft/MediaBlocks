@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Staticsoft.Testing.Unit" Version="1.0.0-10" />
     <PackageReference Include="Staticsoft.Extensions.DependencyInjection" Version="1.0.0-3" />
-    <PackageReference Include="Staticsoft.TreeOperations.Memory" Version="1.0.0-3" />
+    <PackageReference Include="Staticsoft.GraphOperations.Memory" Version="1.0.0-4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
     <PackageReference Include="xunit" Version="2.4.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">

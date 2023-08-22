@@ -13,7 +13,7 @@
   
   <ItemGroup>
     <PackageReference Include="Staticsoft.Extensions.DependencyInjection" Version="1.0.0-3" />
-    <PackageReference Include="Staticsoft.TreeOperations.Abstractions" Version="1.0.0-4" />
+    <PackageReference Include="Staticsoft.GraphOperations.Abstractions" Version="1.0.0-4" />
   </ItemGroup>
 
   <PropertyGroup>

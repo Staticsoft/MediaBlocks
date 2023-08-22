@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaBlocks.Abstractions", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaBlocks.Memory", "MediaBlocks.Memory\MediaBlocks.Memory.csproj", "{46827686-B775-40FB-9904-90DEFE1AA3E3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaBlocks.FFMpeg", "MediaBlocks.FFMpeg\MediaBlocks.FFMpeg.csproj", "{5671EABF-7CC4-4B0E-A0B6-1E24939019B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{46827686-B775-40FB-9904-90DEFE1AA3E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46827686-B775-40FB-9904-90DEFE1AA3E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46827686-B775-40FB-9904-90DEFE1AA3E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5671EABF-7CC4-4B0E-A0B6-1E24939019B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5671EABF-7CC4-4B0E-A0B6-1E24939019B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5671EABF-7CC4-4B0E-A0B6-1E24939019B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5671EABF-7CC4-4B0E-A0B6-1E24939019B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
