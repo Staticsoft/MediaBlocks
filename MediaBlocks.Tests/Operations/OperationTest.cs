@@ -75,7 +75,7 @@ public abstract class OperationTest : OperationTestBase
             Type = nameof(FadeIn),
             Properties = new
             {
-                Media = reference,
+                Video = new { Ref = reference },
                 Duration = duration
             }
         };
@@ -86,7 +86,7 @@ public abstract class OperationTest : OperationTestBase
             Type = nameof(FadeOut),
             Properties = new
             {
-                Media = reference,
+                Video = new { Ref = reference },
                 Duration = duration
             }
         };
