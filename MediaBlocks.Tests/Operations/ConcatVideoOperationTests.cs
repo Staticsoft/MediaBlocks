@@ -4,11 +4,11 @@ using System.Threading.Tasks;
 
 namespace Staticsoft.MediaBlocks.Tests;
 
-public class ConcatOperationTests : OperationTest
+public class ConcatVideoOperationTests : OperationTest
 {
     protected override GraphProcessorBuilder Graph(GraphProcessorBuilder graph) => graph
         .With<AssetOperation>()
-        .With<ConcatOperation>()
+        .With<ConcatVideoOperation>()
         .With<MergeOperation>();
 
     [Test]
@@ -21,6 +21,6 @@ public class ConcatOperationTests : OperationTest
             BoopsAudio = Audio("boops.mp3"),
             GreenBeepVideo = Merge("GreenImage", "BeepAudio"),
             RedBoopsVideo = Merge("RedImage", "BoopsAudio"),
-            Concatenated = Concat("GreenBeepVideo", "RedBoopsVideo")
+            Concatenated = ConcatVideo("GreenBeepVideo", "RedBoopsVideo")
         });
 }
