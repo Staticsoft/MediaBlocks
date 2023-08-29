@@ -13,7 +13,7 @@ namespace Staticsoft.MediaBlocks.Tests;
 
 public abstract class OperationTestBase : TestBase<GraphMedia>
 {
-    protected abstract GraphProcessorBuilder Graph(GraphProcessorBuilder tree);
+    protected abstract GraphProcessorBuilder Graph(GraphProcessorBuilder graph);
 
     protected override IServiceCollection Services => base.Services
         .AddSingleton<GraphMedia>()
@@ -25,8 +25,8 @@ public abstract class OperationTestBase : TestBase<GraphMedia>
     {
         if (testName == null) throw new NotSupportedException($"{nameof(testName)} cannot be null");
         Get<TestIntermediateStorage>().PrepareTestStorage(testName);
-        var tree = JsonSerializer.Serialize(properties);
-        return SUT.Build(tree);
+        var graph = JsonSerializer.Serialize(properties);
+        return SUT.Build(graph);
     }
 
     protected static object Audio(string fileName)
@@ -62,10 +62,17 @@ public abstract class OperationTest : OperationTestBase
             }
         };
 
-    static protected object Concat(params object[] references)
+    static protected object ConcatVideo(params object[] references)
         => new
         {
-            Type = nameof(Concat),
+            Type = nameof(ConcatVideo),
+            Properties = references.Select(reference => new { Ref = reference }).ToArray()
+        };
+
+    static protected object ConcatAudio(params object[] references)
+        => new
+        {
+            Type = nameof(ConcatAudio),
             Properties = references.Select(reference => new { Ref = reference }).ToArray()
         };
 
