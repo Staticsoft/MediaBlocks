@@ -34,7 +34,6 @@ public class GraphMediaTests : TestBase<GraphMedia>
             }
         });
         Assert.Equal("PathToVideoFile", reference.Path);
-        Assert.Equal(MediaType.Video, reference.Type);
     }
 
     Task<MediaReference> Build<Configuration>(Configuration configuration)

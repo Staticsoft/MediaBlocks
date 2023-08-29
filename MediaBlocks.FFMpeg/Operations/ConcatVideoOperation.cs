@@ -18,8 +18,7 @@ public class ConcatVideoOperation : Operation<string[], MediaReference>
         FFMpegCore.FFMpeg.Join(output, files);
         return Task.FromResult(new MediaReference()
         {
-            Path = output,
-            Type = MediaType.Video
+            Path = output
         });
     }
 }
@@ -40,8 +39,7 @@ public class ConcatAudioOperation : Operation<string[], MediaReference>
             .ProcessAsynchronously();
         return new MediaReference
         {
-            Path = output,
-            Type = MediaType.Audio
+            Path = output
         };
     }
 }

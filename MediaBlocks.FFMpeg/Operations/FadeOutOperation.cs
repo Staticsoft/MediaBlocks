@@ -29,8 +29,7 @@ public class FadeOutOperation : Operation<FadeProperties, MediaReference>
 
         return new MediaReference()
         {
-            Path = output,
-            Type = MediaType.Video
+            Path = output
         };
     }
 

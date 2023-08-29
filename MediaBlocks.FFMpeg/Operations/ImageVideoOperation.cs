@@ -1,29 +1,27 @@
 ﻿using FFMpegCore;
 using Staticsoft.GraphOperations.Abstractions;
 using Staticsoft.MediaBlocks.Abstractions;
+using System;
 using System.Threading.Tasks;
 
 namespace Staticsoft.MediaBlocks.FFMpeg;
 
-public class MergeOperation : Operation<MergeOperationProperties, MediaReference>
+public class ImageVideoOperation : Operation<ImageVideoOperationProperties, MediaReference>
 {
     readonly IntermediateStorage Storage;
 
-    public MergeOperation(IntermediateStorage storage)
+    public ImageVideoOperation(IntermediateStorage storage)
         => Storage = storage;
 
-    protected override async Task<MediaReference> Process(MergeOperationProperties properties)
+    protected override async Task<MediaReference> Process(ImageVideoOperationProperties properties)
     {
         var output = $"{Storage.CreateIntermediateFilePath()}.mp4";
-
-        var analysedAudio = await FFProbe.AnalyseAsync(properties.Audio);
 
         await FFMpegArguments
             .FromFileInput(properties.Image, verifyExists: false, (options) => options
                 .Loop(1)
-                .WithDuration(analysedAudio.Duration)
+                .WithDuration(TimeSpan.FromMilliseconds(properties.Duration))
             )
-            .AddFileInput(properties.Audio)
             .OutputToFile(output)
             .ProcessAsynchronously();
 
@@ -34,8 +32,8 @@ public class MergeOperation : Operation<MergeOperationProperties, MediaReference
     }
 }
 
-public class MergeOperationProperties
+public class ImageVideoOperationProperties
 {
     public string Image { get; init; } = string.Empty;
-    public string Audio { get; init; } = string.Empty;
+    public int Duration { get; init; }
 }
