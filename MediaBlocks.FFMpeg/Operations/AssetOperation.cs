@@ -30,6 +30,15 @@ public class AssetOperation : Operation<AssetProperties, MediaReference>
                 Duration = Convert.ToInt32(analyzedAudio.Duration.TotalMilliseconds)
             };
         }
+        else if (type == MediaType.Text)
+        {
+            var text = await File.ReadAllTextAsync(properties.Path);
+            return new TextReference
+            {
+                Path = output,
+                Text = text
+            };
+        }
         return new MediaReference
         {
             Path = output
@@ -40,6 +49,7 @@ public class AssetOperation : Operation<AssetProperties, MediaReference>
     {
         "mp3" => MediaType.Audio,
         "png" => MediaType.Image,
+        "txt" => MediaType.Text,
         _ => throw new NotSupportedException($"Unsupported file extension '.{extension}'")
     };
 }
