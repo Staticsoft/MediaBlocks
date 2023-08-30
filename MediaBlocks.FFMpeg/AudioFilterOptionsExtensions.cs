@@ -10,6 +10,12 @@ public static class AudioFilterOptionsExtensions
     public static AudioFilterOptions FadeOut(this AudioFilterOptions options, int startTime, int duration)
         => options.Fade(startTime, duration, "out");
 
+    public static AudioFilterOptions Volume(this AudioFilterOptions options, int volume)
+    {
+        options.Arguments.Add(new VolumeArgument(volume));
+        return options;
+    }
+
     static AudioFilterOptions Fade(this AudioFilterOptions options, int startTime, int duration, string direction)
     {
         options.Arguments.Add(new FadeArgument(startTime, duration, "afade", direction));
