@@ -5,24 +5,19 @@ using System.Threading.Tasks;
 
 namespace Staticsoft.MediaBlocks.FFMpeg;
 
-public class MergeOperation : Operation<MergeOperationProperties, MediaReference>
+public class AddAudioOperation : Operation<AddAudioOperationProperties, MediaReference>
 {
     readonly IntermediateStorage Storage;
 
-    public MergeOperation(IntermediateStorage storage)
+    public AddAudioOperation(IntermediateStorage storage)
         => Storage = storage;
 
-    protected override async Task<MediaReference> Process(MergeOperationProperties properties)
+    protected override async Task<MediaReference> Process(AddAudioOperationProperties properties)
     {
         var output = $"{Storage.CreateIntermediateFilePath()}.mp4";
 
-        var analysedAudio = await FFProbe.AnalyseAsync(properties.Audio);
-
         await FFMpegArguments
-            .FromFileInput(properties.Image, verifyExists: false, (options) => options
-                .Loop(1)
-                .WithDuration(analysedAudio.Duration)
-            )
+            .FromFileInput(properties.Video)
             .AddFileInput(properties.Audio)
             .OutputToFile(output)
             .ProcessAsynchronously();
@@ -34,8 +29,8 @@ public class MergeOperation : Operation<MergeOperationProperties, MediaReference
     }
 }
 
-public class MergeOperationProperties
+public class AddAudioOperationProperties
 {
-    public string Image { get; init; } = string.Empty;
+    public string Video { get; init; } = string.Empty;
     public string Audio { get; init; } = string.Empty;
 }
