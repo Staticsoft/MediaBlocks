@@ -27,6 +27,7 @@
     <ProjectReference Include="..\MediaBlocks.Abstractions\MediaBlocks.Abstractions.csproj" />
     <ProjectReference Include="..\MediaBlocks.FFMpeg\MediaBlocks.FFMpeg.csproj" />
     <ProjectReference Include="..\MediaBlocks.Memory\MediaBlocks.Memory.csproj" />
+    <ProjectReference Include="..\MediaBlocks.Subtitles\MediaBlocks.Subtitles.csproj" />
   </ItemGroup>
 
   <ItemGroup>

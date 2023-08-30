@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaBlocks.Memory", "Media
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaBlocks.Tests", "MediaBlocks.Tests\MediaBlocks.Tests.csproj", "{40750711-19B7-4AF9-8B97-2CE419BA90AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaBlocks.FFMpeg", "MediaBlocks.FFMpeg\MediaBlocks.FFMpeg.csproj", "{7B4CBE33-19F8-4817-A6C9-8F1205C66A05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaBlocks.FFMpeg", "MediaBlocks.FFMpeg\MediaBlocks.FFMpeg.csproj", "{7B4CBE33-19F8-4817-A6C9-8F1205C66A05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaBlocks.Subtitles", "MediaBlocks.Subtitles\MediaBlocks.Subtitles.csproj", "{CCBF178A-A05F-4F9C-A94C-82A02930B443}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7B4CBE33-19F8-4817-A6C9-8F1205C66A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B4CBE33-19F8-4817-A6C9-8F1205C66A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B4CBE33-19F8-4817-A6C9-8F1205C66A05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCBF178A-A05F-4F9C-A94C-82A02930B443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCBF178A-A05F-4F9C-A94C-82A02930B443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCBF178A-A05F-4F9C-A94C-82A02930B443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCBF178A-A05F-4F9C-A94C-82A02930B443}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
