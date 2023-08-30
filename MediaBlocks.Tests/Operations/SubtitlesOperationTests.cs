@@ -26,3 +26,44 @@ public class SubtitlesOperationTests : OperationTest
             }
         });
 }
+
+public class ConcatSubtitlesOperationTests : OperationTest
+{
+    protected override GraphProcessorBuilder Graph(GraphProcessorBuilder graph) => graph
+        .With<AssetOperation>()
+        .With<SubtitlesOperation>()
+        .With<ConcatSubtitlesOperation>();
+
+    [Test]
+    public Task ConcatenatesTwoSubtitlesIntoOne()
+        => Process(new
+        {
+            Subtitles1 = new
+            {
+                Type = "Subtitles",
+                Properties = new
+                {
+                    Text = "Text1",
+                    Duration = 1230
+                }
+            },
+            Subtitles2 = new
+            {
+                Type = "Subtitles",
+                Properties = new
+                {
+                    Text = "Text2",
+                    Duration = 2340
+                }
+            },
+            Merged = new
+            {
+                Type = "ConcatSubtitles",
+                Properties = new[]
+                {
+                    new { Ref = "Subtitles1" },
+                    new { Ref = "Subtitles2" }
+                }
+            }
+        });
+}

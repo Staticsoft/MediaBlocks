@@ -20,7 +20,7 @@ public class SubtitlesOperation : Operation<SubtitlesOperationProperties, MediaR
 
     static async Task GenerateASSFile(string path, string text, double duration)
     {
-        var options = new FileStreamOptions() { Mode = FileMode.CreateNew, Access = FileAccess.Write };
+        var options = new FileStreamOptions() { Access = FileAccess.Write, Mode = FileMode.CreateNew };
         using var file = new StreamWriter(path, Encoding.UTF8, options);
         await WriteHeader(file);
         await WriteStyles(file);
