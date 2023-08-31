@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaBlocks.FFMpeg", "Media
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaBlocks.Subtitles", "MediaBlocks.Subtitles\MediaBlocks.Subtitles.csproj", "{51A2447A-08F5-4B70-99DF-FAD8A6CC7912}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediaBlocks.Numbers", "MediaBlocks.Numbers\MediaBlocks.Numbers.csproj", "{CA0D813A-2AAC-4E00-9B93-C9AAD9C6709B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{51A2447A-08F5-4B70-99DF-FAD8A6CC7912}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51A2447A-08F5-4B70-99DF-FAD8A6CC7912}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51A2447A-08F5-4B70-99DF-FAD8A6CC7912}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA0D813A-2AAC-4E00-9B93-C9AAD9C6709B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA0D813A-2AAC-4E00-9B93-C9AAD9C6709B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA0D813A-2AAC-4E00-9B93-C9AAD9C6709B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA0D813A-2AAC-4E00-9B93-C9AAD9C6709B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

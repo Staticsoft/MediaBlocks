@@ -1,6 +1,6 @@
-﻿using MediaBlocks.Subtitles;
-using Staticsoft.GraphOperations.Memory;
+﻿using Staticsoft.GraphOperations.Memory;
 using Staticsoft.MediaBlocks.FFMpeg;
+using Staticsoft.MediaBlocks.Subtitles;
 using System.Threading.Tasks;
 
 namespace Staticsoft.MediaBlocks.Tests;
