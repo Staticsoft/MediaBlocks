@@ -2,7 +2,7 @@
 using Staticsoft.MediaBlocks.Abstractions;
 using System.Text;
 
-namespace MediaBlocks.Subtitles;
+namespace Staticsoft.MediaBlocks.Subtitles;
 
 public class SubtitlesOperation : Operation<SubtitlesOperationProperties, MediaReference>
 {

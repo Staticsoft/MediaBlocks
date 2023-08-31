@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace MediaBlocks.Subtitles;
+namespace Staticsoft.MediaBlocks.Subtitles;
 
 record DialogueLine
 {

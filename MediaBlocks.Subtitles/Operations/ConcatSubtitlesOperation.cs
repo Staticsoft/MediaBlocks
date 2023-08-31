@@ -1,7 +1,7 @@
 ﻿using Staticsoft.GraphOperations.Abstractions;
 using Staticsoft.MediaBlocks.Abstractions;
 
-namespace MediaBlocks.Subtitles;
+namespace Staticsoft.MediaBlocks.Subtitles;
 
 public class ConcatSubtitlesOperation : Operation<string[], MediaReference>
 {
