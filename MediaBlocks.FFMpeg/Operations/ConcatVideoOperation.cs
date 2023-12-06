@@ -1,5 +1,4 @@
-﻿using FFMpegCore;
-using Staticsoft.GraphOperations.Abstractions;
+﻿using Staticsoft.GraphOperations.Abstractions;
 using Staticsoft.MediaBlocks.Abstractions;
 using System.Threading.Tasks;
 
@@ -20,26 +19,5 @@ public class ConcatVideoOperation : Operation<string[], MediaReference>
         {
             Path = output
         });
-    }
-}
-
-public class ConcatAudioOperation : Operation<string[], MediaReference>
-{
-    readonly IntermediateStorage Storage;
-
-    public ConcatAudioOperation(IntermediateStorage storage)
-        => Storage = storage;
-
-    protected override async Task<MediaReference> Process(string[] files)
-    {
-        var output = $"{Storage.CreateIntermediateFilePath()}.mp3";
-        await FFMpegArguments
-            .FromConcatInput(files)
-            .OutputToFile(output)
-            .ProcessAsynchronously();
-        return new MediaReference
-        {
-            Path = output
-        };
     }
 }
